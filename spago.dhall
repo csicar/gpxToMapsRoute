@@ -8,6 +8,7 @@ You can edit this file as you like.
   , "debug"
   , "effect"
   , "generics-rep"
+  , "halogen"
   , "node-fs"
   , "ordered-collections"
   , "psci-support"
