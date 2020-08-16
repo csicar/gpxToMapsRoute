@@ -117,13 +117,14 @@ component =
 
   render state =
     HH.div [HP.classes [HH.ClassName "main"]]
-      [ HH.input [ HP.classes [HH.ClassName "gpx-input"], HP.type_ InputFile, HE.onChange $ Just <<< LoadFile ]
+      [ HH.h1_ [HH.text "Convert GPX File to Google Maps route"]
+      , HH.input [ HP.classes [HH.ClassName "gpx-input"], HP.type_ InputFile, HE.onChange $ Just <<< LoadFile ]
       , HH.div_
           [ case state of
-              Nothing -> HH.text "select a file"
+              Nothing -> HH.text ""
               Just file -> case toUrl <$> parseFromString file of
                 Left err -> HH.text err
-                Right url -> HH.a [ HP.href url ] [ HH.text url ]
+                Right url -> HH.a [ HP.classes [HH.ClassName "maps-link"], HP.href url ] [ HH.text url ]
           ]
       ]
 
