@@ -67,7 +67,7 @@ component =
            case state of
               Waiting -> [HH.text ""]
               Loaded waypoints -> Array.fromFoldable $ renderUrl <$> toUrls waypoints
-              LoadingFile -> [HH.text "loading..."]
+              LoadingFile -> [HH.div [HP.classes [HH.ClassName "loader"]] []]
               Failed err -> [HH.text err]
 
       ]
